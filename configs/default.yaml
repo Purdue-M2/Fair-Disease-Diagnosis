@@ -1,0 +1,30 @@
+# Fair Disease Diagnosis — Default Configuration
+
+data:
+  data_dir: /workspace/data/extracted
+  target_depth: 64
+  target_size: 256
+
+model:
+  architecture: 3d-resnet18
+  pretrained: kinetics-400
+  num_classes: 4
+
+loss:
+  alpha: 0.7          # CVaR confidence level (sweep: 0.5, 0.7, 0.75, 0.8, 0.9)
+  tau: 1.0            # logit-adjustment temperature
+
+training:
+  epochs: 80
+  batch_size: 4
+  lr: 1.0e-4
+  weight_decay: 1.0e-5
+  seed: 42
+  mixed_precision: true
+
+scheduler:
+  type: cosine_annealing
+  T_max: 80
+
+output:
+  save_dir: /workspace/outputs
