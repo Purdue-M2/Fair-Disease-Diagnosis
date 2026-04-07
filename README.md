@@ -1,6 +1,12 @@
-# Fair Disease Diagnosis in CT Images
+# Robust Fair Disease Diagnosis in CT Images
 
-Official implementation for **"Fair Disease Diagnosis in CT Images"**, accepted by 3rd Workshop on New Trends in AI-Generated Media and Security (AIMS) @ CVPR 2026.
+Official implementation for **"Robust Fair Disease Diagnosis in CT Images"**, accepted by 3rd Workshop on New Trends in AI-Generated Media and Security (AIMS) @ CVPR 2026.
+
+**Justin Li<sup>1*</sup>, Daniel Ding<sup>1*</sup>, Asmita Yuki Pritha<sup>2*</sup>, Aryana Hou<sup>3*</sup>, Xin Wang<sup>4</sup>, Shu Hu<sup>5†</sup>**
+
+<sup>1</sup>Carmel High School &nbsp; <sup>2</sup>Capstone School Dhaka &nbsp; <sup>3</sup>Clarkstown High School South &nbsp; <sup>4</sup>University at Albany, SUNY &nbsp; <sup>5</sup>Purdue University
+
+<sup>*</sup>Co-first authors &nbsp; <sup>†</sup>Corresponding author
 
 ## Overview
 
@@ -8,12 +14,14 @@ We propose a fairness-aware 3D classification framework that pairs a Kinetics-40
 
 ## Key Results
 
-| α | Accuracy | F1 Gap (M–F) | Final Score | Notes |
-|---|---|---|---|---|
-| Baseline | — | — | 0.7413 | No fairness loss |
-| 0.5 | — | 0.0199 | 0.7348 | Best fairness |
-| 0.7 | — | 0.0559 | 0.8115 | Best balanced (F > M) |
-| 0.8 | — | — | 0.8253 | Highest score |
+| α | F1_male | F1_female | Score ↑ | Gap ↓ | Notes |
+|---|---|---|---|---|---|
+| Baseline (CE) | 0.7957 | 0.6868 | 0.7413 | 0.1089 | No fairness loss |
+| LA Only | 0.8596 | 0.7375 | 0.7986 | 0.1221 | Class rebalancing only |
+| CVaR Only | 0.8738 | 0.7591 | 0.8165 | 0.1148 | Fairness only |
+| 0.7 | 0.7835 | 0.8394 | 0.8115 | 0.0559 | F > M |
+| **0.8** | **0.8283** | **0.8522** | **0.8403** | **0.0239** | **Best overall** |
+| 0.9 | 0.8910 | 0.7611 | 0.8260 | 0.1299 | Highest male F1 |
 
 ## Method
 
@@ -97,9 +105,9 @@ done
 ## Citation
 
 ```bibtex
-@inproceedings{yuki2026fairdisease,
-  title={Fair Disease Diagnosis in CT Images},
-  author={Yuki Pritha, Asmita and Xu, Jason and Ding, Daniel and Li, Justin and Hou, Aryana and Wang, Xin and Hu, Shu},
+@inproceedings{li2026robust,
+  title={Robust Fair Disease Diagnosis in CT Images},
+  author={Li, Justin and Ding, Daniel and Yuki Pritha, Asmita and Hou, Aryana and Wang, Xin and Hu, Shu},
   booktitle={Proceedings of the {IEEE/CVF} Conference on Computer Vision and Pattern Recognition ({CVPR}) Workshops},
   year={2026}
 }
